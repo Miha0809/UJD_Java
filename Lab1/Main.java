@@ -70,6 +70,10 @@ public class Main {
         // Nie wiem
     }
 
+    private static void task5() {
+        // nie wiem
+    }
+    
     private static double average(Measurable[] objects) {
         double suma = 0;
 
