@@ -3,93 +3,102 @@ package Lab1;
 import java.util.Scanner;
 
 public class Main {
-  public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    
-    while (true) {
-      System.out.println("\t\tNAVIGATION");
-      System.out.println("task1 - 1");
-      System.out.println("task2 - 2");
-      System.out.println("exit - other");
-      System.out.print(">>> ");
-      short task = scanner.nextShort();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-      switch (task) {
-        case 1:
-          task1();
-          break;
-        case 2:
-          task2();
-          break;
-        case 4:
-          task4a();
-          break;
-        default:
-          scanner.close();
-          return;
-      }
-    }
-  }
-  
-  private static void task1() {
-    Measurable[] measurables = {
-        new Employee(14),
-        new Employee(19),
-        new Employee(25),
-        new Employee(40)
-    };
+        while (true) {
+            System.out.println("\t\tNAVIGATION");
+            System.out.println("task1 - 1");
+            System.out.println("task2 - 2");
+            System.out.println("task4a - 4");
+            System.out.println("task4b - 5");
+            System.out.println("exit - other");
+            System.out.print(">>> ");
+            short task = scanner.nextShort();
 
-    System.out.println(average(measurables));
-  }
-
-  private static void task2() {
-    Measurable[] measurables = {
-        new Employee(14, "Mark"),
-        new Employee(19, "Witold"),
-        new Employee(25, "Dima"),
-        new Employee(40, "Michał")
-    };
-
-    System.out.println(largest(measurables));
-  }
-
-  private static void task4a() {
-    IntSequence isc = IntSequence.of(1, 2, 3, 4, 5, 6);
-
-    while (isc.hasNext()) {
-      System.out.println(isc.next());
-    }
-  }
-
-  private static double average(Measurable[] objects) {
-    double suma = 0;
-
-    if (objects.length == 0) {
-      return suma;
+            switch (task) {
+                case 1:
+                    task1();
+                    break;
+                case 2:
+                    task2();
+                    break;
+                case 4:
+                    task4a();
+                    break;
+                case 5:
+                    task4b();
+                    break;
+                default:
+                    scanner.close();
+                    return;
+            }
+        }
     }
 
-    for (Measurable measurable : objects) {
-      suma += measurable.getMeasure();
+    private static void task1() {
+        Measurable[] measurables = {
+                new Employee(14),
+                new Employee(19),
+                new Employee(25),
+                new Employee(40)
+        };
+
+        System.out.println(average(measurables));
     }
 
-    return suma / objects.length;
-  }
+    private static void task2() {
+        Measurable[] measurables = {
+                new Employee(14, "Mark"),
+                new Employee(19, "Witold"),
+                new Employee(25, "Dima"),
+                new Employee(40, "Michał")
+        };
 
-  private static Measurable largest(Measurable[] objects) {
-    if (objects.length == 0) {
-      return null;
+        System.out.println(largest(measurables));
     }
 
-    double max = Double.MIN_VALUE;
-    Measurable employee = new Employee();
+    private static void task4a() {
+        IntSequence isc = IntSequence.of(3, 1, 4, 1, 5, 9);
 
-    for (Measurable measurable : objects) {
-      if (measurable.getMeasure() > max) {
-        max = measurable.getMeasure();
-        employee = measurable;
-      }
+        while (isc.hasNext()) {
+            System.out.println(isc.next());
+        }
     }
 
-    return employee;
-  }
+    private static void task4b() {
+
+    }
+
+    private static double average(Measurable[] objects) {
+        double suma = 0;
+
+        if (objects.length == 0) {
+            return suma;
+        }
+
+        for (Measurable measurable : objects) {
+            suma += measurable.getMeasure();
+        }
+
+        return suma / objects.length;
+    }
+
+    private static Measurable largest(Measurable[] objects) {
+        if (objects.length == 0) {
+            return null;
+        }
+
+        double max = Double.MIN_VALUE;
+        Measurable employee = new Employee();
+
+        for (Measurable measurable : objects) {
+            if (measurable.getMeasure() > max) {
+                max = measurable.getMeasure();
+                employee = measurable;
+            }
+        }
+
+        return employee;
+    }
 }
