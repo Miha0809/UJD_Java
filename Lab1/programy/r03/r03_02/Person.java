@@ -1,4 +1,4 @@
-package r03.r03_02;
+package Lab1.programy.r03.r03_02;
 
 public interface Person
 {

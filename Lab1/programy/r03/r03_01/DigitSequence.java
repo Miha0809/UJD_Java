@@ -1,4 +1,5 @@
-package r03.r03_01;
+package Lab1.programy.r03.r03_01;
+
 
 public class DigitSequence implements IntSequence
 {
