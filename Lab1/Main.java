@@ -67,7 +67,7 @@ public class Main {
     }
 
     private static void task4b() {
-
+        // Nie wiem
     }
 
     private static double average(Measurable[] objects) {
