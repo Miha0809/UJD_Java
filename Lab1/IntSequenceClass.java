@@ -24,5 +24,4 @@ public class IntSequenceClass implements IntSequence {
   public int next() {
     return values[index++];
   }
-
 }
