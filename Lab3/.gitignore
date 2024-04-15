@@ -3,7 +3,10 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea/
-.idea/workspace.xml
+.idea/.gitignore
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
 
 ### Eclipse ###
 .apt_generated
@@ -30,5 +33,4 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-### ajp ###
-ajp-2024-w03/
+ajp-2024-w03
