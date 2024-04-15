@@ -10,7 +10,7 @@ public class Main {
             System.out.println("NAVIGATION");
             System.out.println("Enter 1 - task1");
             System.out.println("Enter 2 - task2");
-            System.out.println("Enter 2 - task2");
+            System.out.println("Enter 3 - task3");
             mode = scanner.nextInt();
 
             switch (mode)
@@ -25,7 +25,13 @@ public class Main {
                     readFiles.Read("ajp-2024-w03");
                     break;
                 }
+                case 3: {
+                    var readAll = new ReadAll();
+                    readAll.Read("ajp-2024-w03");
+                }
             }
+
+            System.out.println();
         }
     }
 }
