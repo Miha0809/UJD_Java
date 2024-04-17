@@ -1,19 +1,14 @@
 import java.io.File;
+import java.util.Arrays;
 
 public class ReadFiles implements IRead {
     @Override
     public void Read(String path) {
-        File file = new File(path);
+        File directory = new File(path);
+        File[] files = directory.listFiles(File::isFile);
 
-        if (!file.exists() || !file.isDirectory()) {
-            return;
-        }
-
-        for (File f : file.listFiles()) {
-            if (f.isFile()) {
-                System.out.println(f.getPath());
-                Read(f.getPath());
-            }
+        if (files != null) {
+            Arrays.stream(files).forEach(System.out::println);
         }
     }
 }
