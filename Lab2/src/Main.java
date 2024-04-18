@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +18,35 @@ public class Main {
             mode = scanner.nextInt();
 
             switch (mode) {
+                case 2: {
+                    ArrayList<String> strings = new ArrayList<>();
+
+                    strings.add("a");
+                    strings.add("aa");
+                    strings.add("aaa");
+                    strings.add("aaaa");
+
+                    Comparator<String> comp = new Comparator<String>() {
+                        @Override
+                        public int compare(String arg0, String arg1) {
+                            if (arg0.length() < arg1.length())
+                            {
+                                return -1;
+                            }
+                            else if (arg0.length() > arg1.length())
+                            {
+                                return 1;
+                            }
+
+                            return 0;
+                        }
+                        
+                    };
+
+                    luckySort(strings, comp);
+
+                    break;
+                }
                 case 3: {
                     var first = new Greeter("first", 5);
                     var second = new Greeter("second", 5);
@@ -40,6 +72,13 @@ public class Main {
                     break;
             }
         }
+    }
+
+    private static void luckySort(ArrayList<String> strings, Comparator<String> comp)
+    {
+        strings.sort(comp);
+        Collections.shuffle(strings);
+        strings.forEach(System.out::println);
     }
 
     public static void runTogether(Runnable... tasks)
