@@ -1,5 +1,11 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
+import javax.swing.text.html.Option;
 
 class RandomSequence implements IntSequence {
     private static Random generator = new Random();
@@ -56,6 +62,24 @@ public class Main {
                     Runnable runnable3 = () -> System.out.println("runnable3");
                     Runnable runnable = foo(runnable1, runnable2, runnable3);
                     runnable.run();
+
+                    break;
+                }
+                case 2: {
+                    Person[] persons = {
+                        new Person("Anna", "Kulesza", 12d),
+                        new Person("Mykhailo", "Hulii", 123d),
+                        new Person("Mark", "Full", 123d)
+                    };
+
+                    System.out.println("\n\tBefore sort:");
+                    Arrays.stream(persons).forEach(System.out::println);
+                    
+                    Arrays.sort(persons, Comparator.comparing(Person::getSalary).thenComparing(Person::getLastName));
+                    
+                    System.out.println("\n\tAfter sort:");
+                    Arrays.stream(persons).forEach(System.out::println);
+
                     break;
                 }
                 case 3: {
@@ -64,6 +88,8 @@ public class Main {
                     while (numbers.hasNext()) {
                         System.out.println(numbers.next());
                     }
+
+                    break;
                 }
                 default:
                     break;
