@@ -22,9 +22,10 @@ class RandomSequence implements IntSequence {
 }
 
 public class Main {
+
     public static IntSequence randomInts(int low, int high) {
-        var a = new RandomSequence(low, high);
-        return a;
+        var numbers = new RandomSequence(low, high);
+        return numbers;
     }
 
     public static void main(String[] args) {
