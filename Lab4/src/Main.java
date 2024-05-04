@@ -29,10 +29,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        var a = randomInts(5, 10);
+        var numbers = randomInts(5, 10);
 
-        while (a.hasNext()) {
-            System.out.println(a.next());
+        while (numbers.hasNext()) {
+            System.out.println(numbers.next());
         }
     }
 }
