@@ -1,15 +1,43 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+public class Main {
+    private static void Task1() {
+        // TODO: ліміт, фільтер, sout
+    }
+
+    private static void Task2() throws IOException
+    {
+        String text = new String(Files.readAllBytes(
+            Paths.get("alice.txt")), StandardCharsets.UTF_8);
+        List<String> wordList = Arrays.asList(text.split("\\PL+"));
+        
+        // for stream
+        long startFirstTime = System.currentTimeMillis();
+        long first = wordList.stream()
+                             .filter(word -> word.length() > 12)
+                             .count();
+        long endFirstTime = System.currentTimeMillis();
+
+        // for parallelStream
+        long startSecondTime = System.currentTimeMillis();
+        long second = wordList.parallelStream()
+                              .filter(word -> word.length() > 12)
+                              .count();
+        long endSecondTime = System.currentTimeMillis();
+
+        System.out.println("stream count: " + first);
+        System.out.println("parallelStream count: " + second);
+    
+        System.out.println("stream: " + (endFirstTime - startFirstTime));
+        System.out.println("parallelStream: " + (endSecondTime - startSecondTime));
+    }
+
+    public static void main(String[] args) throws Exception {
+        Task2();
     }
 }
