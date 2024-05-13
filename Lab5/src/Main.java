@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     private static void Task1() {
@@ -38,6 +39,31 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        int task = -1;
+
+        while (task != 0) {
+            System.out.println("\n\t\tNAVIGATION");
+            System.out.println("Task 1 - etner 1");
+            System.out.println("Task 2 - etner 2");
+            System.out.println("Task 3 - etner 3");
+            System.out.println("Task 4 - etner 4");
+            task = scanner.nextInt();
+
+            switch (task) {
+                case 1: {
+                    Task1();
+                    break;
+                }
+                case 2: {
+                    Task2();
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+
         Task2();
     }
 }
