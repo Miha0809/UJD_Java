@@ -7,8 +7,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    private static void Task1() {
+    private static void Task1() throws IOException {
         // TODO: ліміт, фільтер, sout
+        String text = new String(Files.readAllBytes(Paths.get("alice.txt")), StandardCharsets.UTF_8);
+        List<String> wordList = Arrays.asList(text);
+
+        System.out.println(wordList);
     }
 
     private static void Task2() throws IOException
@@ -44,10 +48,11 @@ public class Main {
 
         while (task != 0) {
             System.out.println("\n\t\tNAVIGATION");
-            System.out.println("Task 1 - etner 1");
+            System.out.println("Task 1 - enter 1");
             System.out.println("Task 2 - etner 2");
             System.out.println("Task 3 - etner 3");
             System.out.println("Task 4 - etner 4");
+            System.out.println("EXIT - etner 0");
             task = scanner.nextInt();
 
             switch (task) {
