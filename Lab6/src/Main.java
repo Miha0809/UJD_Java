@@ -12,7 +12,22 @@ public class Main {
     }
     
     private static void Task2() {
-
+        System.out.println("Hello".codePoints()
+                                  .allMatch(Character::isAlphabetic));
+        System.out.println("Hello123".codePoints()
+                                     .allMatch(Character::isAlphabetic));
+        System.out.println("Hello123".codePoints()
+                                     .skip(1)
+                                     .allMatch(Character::isJavaIdentifierPart));
+        System.out.println("123Hello".codePoints()
+                                     .skip(1)
+                                     .allMatch(Character::isJavaIdentifierPart));
+        System.out.println("Hello_123".codePoints()
+                                      .skip(1)
+                                      .allMatch(Character::isJavaIdentifierPart));
+        System.out.println("Hello-123".codePoints()
+                                      .skip(1)
+                                      .allMatch(Character::isJavaIdentifierPart));
     }
     
     private static void Task3() {
