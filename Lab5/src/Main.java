@@ -5,14 +5,27 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     private static void Task1() throws IOException {
-        // TODO: ліміт, фільтер, sout
         String text = new String(Files.readAllBytes(Paths.get("alice.txt")), StandardCharsets.UTF_8);
         List<String> wordList = Arrays.asList(text);
+        AtomicInteger filterCount = new AtomicInteger(0);
+        List<String> result = wordList.stream()
+                                      .flatMap(line -> Stream.of(line.split("\\s+")))
+                                      .filter(word -> {
+                                            filterCount.incrementAndGet();
+                                            System.out.println("Filter called for: " + word);
+                                            return word.length() > 5;
+                                       })
+                                       .limit(5)
+                                       .collect(Collectors.toList());
 
-        System.out.println(wordList);
+        System.out.println("Result" + result);
+        System.out.println("Total filter calls: " + filterCount.get());
     }
 
     private static void Task2() throws IOException
@@ -68,7 +81,5 @@ public class Main {
                     break;
             }
         }
-
-        Task2();
     }
 }
