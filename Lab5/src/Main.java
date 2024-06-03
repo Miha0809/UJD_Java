@@ -55,6 +55,11 @@ public class Main {
         System.out.println("parallelStream: " + (endSecondTime - startSecondTime));
     }
 
+    private static void Task3() {
+        int[] numbers = {1, 2, 3, 4, 5, 6};
+        Arrays.stream(numbers).forEach(System.out::println);
+    } 
+
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         int task = -1;
@@ -75,6 +80,10 @@ public class Main {
                 }
                 case 2: {
                     Task2();
+                    break;
+                }
+                case 3: {
+                    Task3();
                     break;
                 }
                 default:
