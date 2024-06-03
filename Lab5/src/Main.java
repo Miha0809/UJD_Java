@@ -60,6 +60,21 @@ public class Main {
         Arrays.stream(numbers).forEach(System.out::println);
     } 
 
+    private static void Task4() {
+        long a = 25214903917L;
+        long c = 11;
+        long m = (1L << 48);
+        long seed = System.currentTimeMillis() & ((1L << 48) - 1);
+
+        Stream<Long> randomStream = lcg(a, c, m, seed);
+        
+        randomStream.limit(10).forEach(System.out::println);
+    }
+
+    private static Stream<Long> lcg(long a, long c, long m, long seed) {
+        return Stream.iterate(seed, x -> (a * x + c) % m);
+    }
+
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         int task = -1;
@@ -84,6 +99,10 @@ public class Main {
                 }
                 case 3: {
                     Task3();
+                    break;
+                }
+                case 4: {
+                    Task4();
                     break;
                 }
                 default:
