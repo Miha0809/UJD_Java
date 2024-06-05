@@ -4,8 +4,13 @@ import java.util.Optional;
 import java.util.Map;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.NoSuchElementException;
+
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public class Main {
     public static void main(String[] args) {
@@ -73,9 +78,7 @@ public class Main {
                 }
             }
             return true;
-        } catch (OutOfMemoryError | StackOverflowError e) {
-            return false;
-        } catch (Exception e) {
+        } catch (OutOfMemoryError | StackOverflowError | Exception e) {
             return false;
         }
     }
@@ -87,7 +90,42 @@ public class Main {
         System.out.println(isFinite(infiniteStream));
     }
 
-    private static void Task3() {
+    public static <T> Stream<T> zip(Stream<T> pierwszy, Stream<T> drugi) {
+        Iterator<T> iterator1 = pierwszy.iterator();
+        Iterator<T> iterator2 = drugi.iterator();
 
+        Iterator<T> zippedIterator = new Iterator<T>() {
+            private boolean useFirst = true;
+
+            @Override
+            public boolean hasNext() {
+                return iterator1.hasNext() || iterator2.hasNext();
+            }
+
+            @Override
+            public T next() {
+                if (!iterator1.hasNext() && !iterator2.hasNext()) {
+                    throw new NoSuchElementException();
+                }
+
+                if (useFirst) {
+                    useFirst = false;
+                    return iterator1.hasNext() ? iterator1.next() : null;
+                } else {
+                    useFirst = true;
+                    return iterator2.hasNext() ? iterator2.next() : null;
+                }
+            }
+        };
+
+        Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(zippedIterator, Spliterator.ORDERED);
+        return StreamSupport.stream(spliterator, false);
+    }
+    private static void Task3() {
+        Stream<String> stream1 = Stream.of("A", "B", "C");
+        Stream<String> stream2 = Stream.of("1", "2", "3", "4");
+
+        Stream<String> zippedStream = zip(stream1, stream2);
+        zippedStream.forEach(System.out::println);
     }
 }
