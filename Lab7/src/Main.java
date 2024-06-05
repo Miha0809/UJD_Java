@@ -20,9 +20,9 @@ public class Main {
         while (task != 0) {
             System.out.println("\n\t\tNAVIGATION");
             System.out.println("Task 1 - enter 1");
-            System.out.println("Task 2 - etner 2");
-            System.out.println("Task 3 - etner 3");
-            System.out.println("EXIT - etner 0");
+            System.out.println("Task 2 - enter 2");
+            System.out.println("Task 3 - enter 3");
+            System.out.println("EXIT - enter 0");
             task = scanner.nextInt();
 
             switch (task) {
