@@ -3,6 +3,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.OptionalInt;
+import java.util.stream.Collectors;
 
 public class Main {
     private static void Task1() {
@@ -100,6 +101,24 @@ public class Main {
     }
 
     private static void Task8() {
+        List<Integer> numbers = Arrays.asList(10, 20, 3, 50, 15, 7, 30, 3, 50);
+
+        List<Integer> sortedNumbers = numbers.stream()
+                .distinct()
+                .sorted()
+                .toList();
+
+        Integer secondSmallest = sortedNumbers.size() > 1 ? sortedNumbers.get(1) : null;
+
+        List<Integer> sortedNumbersDesc = numbers.stream()
+                .distinct()
+                .sorted((a, b) -> b - a)
+                .toList();
+
+        Integer secondLargest = sortedNumbersDesc.size() > 1 ? sortedNumbersDesc.get(1) : null;
+
+        System.out.println("Second smallest: " + secondSmallest);
+        System.out.println("Second largest: " + secondLargest);
     }
 
     public static void main(String[] args) {
