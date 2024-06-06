@@ -31,6 +31,20 @@ public class Main {
     }
 
     private static void Task3() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        int evenSum = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .mapToInt(Integer::intValue)
+                .sum();
+
+        int oddSum = numbers.stream()
+                .filter(n -> n % 2 != 0)
+                .mapToInt(Integer::intValue)
+                .sum();
+
+        System.out.println("Suma even numbers: " + evenSum);
+        System.out.println("Suma not even numbers: " + oddSum);
     }
 
     private static void Task4() {
