@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
+import java.util.OptionalInt;
 
 public class Main {
     private static void Task1() {
@@ -85,6 +85,18 @@ public class Main {
     }
 
     private static void Task7() {
+        List<Integer> numbers = Arrays.asList(10, 20, 3, 50, 15, 7, 30);
+
+        OptionalInt max = numbers.stream()
+                .mapToInt(Integer::intValue)
+                .max();
+
+        OptionalInt min = numbers.stream()
+                .mapToInt(Integer::intValue)
+                .min();
+
+        max.ifPresent(value -> System.out.println("Max value: " + value));
+        min.ifPresent(value -> System.out.println("Min value: " + value));
     }
 
     private static void Task8() {
