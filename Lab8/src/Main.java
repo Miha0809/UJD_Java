@@ -48,6 +48,13 @@ public class Main {
     }
 
     private static void Task4() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 2, 4, 3, 5, 6, 5, 7);
+
+        List<Integer> uniqueNumbers = numbers.stream()
+                .distinct()
+                .toList();
+
+        System.out.println("list with distinct: " + uniqueNumbers);
     }
 
     private static void Task5() {
