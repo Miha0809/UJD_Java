@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -58,9 +59,29 @@ public class Main {
     }
 
     private static void Task5() {
+        List<String> strings = Arrays.asList("apple", "banana", "apricot", "cherry", "avocado", "blueberry");
+        char startingLetter = 'a';
+
+        long count = strings.stream()
+                .filter(s -> s.startsWith(String.valueOf(startingLetter)))
+                .count();
+
+        System.out.println("Count strings as begin " + startingLetter + ": " + count);
     }
 
     private static void Task6() {
+        List<String> strings = Arrays.asList("banana", "apple", "cherry", "blueberry", "avocado");
+
+        List<String> sortedAscending = strings.stream()
+                .sorted()
+                .toList();
+
+        List<String> sortedDescending = strings.stream()
+                .sorted(Comparator.reverseOrder())
+                .toList();
+
+        System.out.println("Sorted in ascending order: " + sortedAscending);
+        System.out.println("Sorted descending: " + sortedDescending);
     }
 
     private static void Task7() {
