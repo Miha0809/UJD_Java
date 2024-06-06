@@ -1,32 +1,52 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     private static void Task1() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
         double average = numbers.stream()
-                                .mapToInt(Integer::intValue)
-                                .average()
-                                .orElse(0);
+                .mapToInt(Integer::intValue)
+                .average()
+                .orElse(0);
 
         System.out.println(average);
     }
 
-    private static void Task2() {}
+    private static void Task2() {
+        List<String> strings = Arrays.asList("hello", "world", "java", "streams");
 
-    private static void Task3() {}
+        List<String> upperCaseStrings = strings.stream()
+                .map(String::toUpperCase)
+                .toList();
 
-    private static void Task4() {}
+        List<String> lowerCaseStrings = strings.stream()
+                .map(String::toLowerCase)
+                .toList();
 
-    private static void Task5() {}
+        System.out.println("upper case string: " + upperCaseStrings);
+        System.out.println("lower case strings: " + lowerCaseStrings);
+    }
 
-    private static void Task6() {}
+    private static void Task3() {
+    }
 
-    private static void Task7() {}
+    private static void Task4() {
+    }
 
-    private static void Task8() {}
+    private static void Task5() {
+    }
+
+    private static void Task6() {
+    }
+
+    private static void Task7() {
+    }
+
+    private static void Task8() {
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -82,6 +102,5 @@ public class Main {
                     break;
             }
         }
-    }
     }
 }
