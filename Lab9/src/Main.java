@@ -5,6 +5,8 @@ import java.math.BigInteger;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     private static void Task1() {
@@ -123,7 +125,7 @@ List<ArrayList<Integer>> listOfLists = new ArrayList<>();
 
     private static void Task5() {}
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         int task = -1;
 
