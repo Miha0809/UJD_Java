@@ -1,10 +1,10 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.math.BigInteger;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Main {
     private static void Task1() {
@@ -100,7 +100,26 @@ List<ArrayList<Integer>> listOfLists = new ArrayList<>();
         primes.forEach(System.out::println);
         System.out.println("Czas wykonania (ms): " + (endTime - startTime));
     }
-    private static void Task4() {}
+
+    private static void Task4() throws IOException {
+        final String filePath = "";
+        List<String> lines = Files.readAllLines(Paths.get(filePath));
+
+        String text = String.join(" ", lines);
+
+        List<String> longestStrings = text.codePoints()
+                .parallel()
+                .mapToObj(Character::toString)
+                .collect(Collectors.groupingByConcurrent(s -> s, Collectors.counting()))
+                .entrySet()
+                .parallelStream()
+                .sorted(Comparator.comparingLong(e -> -e.getValue()))
+                .limit(500)
+                .map(Map.Entry::getKey)
+                .toList();
+
+        longestStrings.forEach(System.out::println);
+    }
 
     private static void Task5() {}
 
