@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.math.BigInteger;
 
 public class Main {
     private static void Task1() {
@@ -84,8 +86,20 @@ List<ArrayList<Integer>> listOfLists = new ArrayList<>();
         }
     }
 
-    private static void Task3() {}
+    private static void Task3() {
+        long startTime = System.currentTimeMillis();
 
+        List<BigInteger> primes = Stream.iterate(BigInteger.ONE, n -> n.add(BigInteger.ONE))
+                .filter(n -> n.isProbablePrime(100))
+                .limit(500)
+                .toList();
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("Pierwsze 500 liczb pierwszych:");
+        primes.forEach(System.out::println);
+        System.out.println("Czas wykonania (ms): " + (endTime - startTime));
+    }
     private static void Task4() {}
 
     private static void Task5() {}
