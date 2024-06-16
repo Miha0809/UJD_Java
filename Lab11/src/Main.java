@@ -279,7 +279,17 @@ public class Main {
         System.out.println(input5.matches(regex)); // true
     }
 
-    private static void Task17() {}
+    private static void Task17() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj liczbę zmiennoprzecinkową: ");
+        String input = scanner.nextLine().trim();
+        scanner.close();
+
+        String regex = "[-+]?\\d*\\.?\\d+";
+
+        boolean isValid = input.matches(regex);
+        System.out.println("Czy liczba jest poprawna? " + isValid);
+    }
 
     private static void Task18() {}
 
