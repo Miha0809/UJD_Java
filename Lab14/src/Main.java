@@ -67,7 +67,19 @@ public class Main {
         }
     }
 
-    private static void Task4() {}
+    private static void Task4() {
+        Locale[] locales = Locale.getAvailableLocales();
+        Set<String> uniqueLanguageNames = new HashSet<>();
+
+        for (Locale locale : locales) {
+            String language = locale.getDisplayLanguage();
+            uniqueLanguageNames.add(language);
+        }
+
+        for (String languageName : uniqueLanguageNames) {
+            System.out.println(languageName);
+        }
+    }
 
     private static void Task5() {}
 
