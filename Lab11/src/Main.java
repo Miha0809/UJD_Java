@@ -315,7 +315,19 @@ public class Main {
         System.out.println("Czy nazwa miasta jest poprawna? " + isValid);
     }
 
-    private static void Task20() {}
+    private static void Task20() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Wprowadź łańcuch znaków: ");
+        String input = scanner.nextLine();
+        scanner.close();
+
+        Pattern pattern = Pattern.compile("\\br[a-zA-Z]{2}\\b");
+        Matcher matcher = pattern.matcher(input);
+
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
+    }
 
     private static void Task21() {}
 
