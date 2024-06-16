@@ -252,7 +252,16 @@ public class Main {
         }
     }
 
-    private static void Task15() {}
+    private static void Task15() {
+        String input = "This is a test string with_123_Abc containing an_email_address.";
+        String[] words = input.split("\\s+");
+
+        for (String word : words) {
+            if (word.matches("[a-zA-Z0-9_]+")) {
+                System.out.println(word);
+            }
+        }
+    }
 
     private static void Task16() {}
 
