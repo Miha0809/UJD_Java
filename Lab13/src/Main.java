@@ -45,7 +45,24 @@ public class Main {
         System.out.println("Data i czas przylotu do Frankfurtu: " + arrivalInFrankfurt);
     }
 
-    private static void Task5() {}
+    private static void Task5() {
+        ZoneId frankfurtZone = ZoneId.of("Europe/Berlin");
+        ZoneId losAngelesZone = ZoneId.of("America/Los_Angeles");
+        LocalDateTime departureDateTime = LocalDateTime.of(2024, 6, 20, 14, 5); // 20 czerwca 2024 o 14:05 czasu lokalnego we Frankfurcie
+        LocalDateTime arrivalDateTime = LocalDateTime.of(2024, 6, 20, 16, 40); // 20 czerwca 2024 o 16:40 czasu lokalnego w Los Angeles
+
+        ZonedDateTime departureZonedDateTime = departureDateTime.atZone(frankfurtZone);
+        ZonedDateTime arrivalZonedDateTime = arrivalDateTime.atZone(losAngelesZone);
+
+        Duration flightDuration = Duration.between(departureZonedDateTime, arrivalZonedDateTime);
+
+        System.out.println("Data i czas odlotu z Frankfurtu: " + departureZonedDateTime);
+        System.out.println("Data i czas przylotu do Los Angeles: " + arrivalZonedDateTime);
+
+        long hours = flightDuration.toHours();
+        long minutes = flightDuration.toMinutesPart();
+        System.out.println("Czas trwania lotu: " + hours + " godzin " + minutes + " minut");
+    }
 
     private static void Task6() {}
 
