@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     private static void Task1() {}
@@ -121,9 +123,21 @@ public class Main {
         System.out.println(testString6 + " -> " + result6);
     }
 
-    private static void Task8() {}
+    private static void Task8() {
+        String input = "example_test another_example notMatching_123 test_example_test";
+        String regex = "\\b[a-z]+_[a-z]+\\b";
 
-    private static void Task9() {}
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
+    }
+
+    private static void Task9() {
+
+    }
 
     private static void Task10() {}
 
