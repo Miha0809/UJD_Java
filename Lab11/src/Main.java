@@ -241,7 +241,16 @@ public class Main {
         }
     }
 
-    private static void Task14() {}
+    private static void Task14() {
+        String input = "This is a test string with some words containing zebra and pizza, but not zucchini.";
+        String[] words = input.split("\\s+");
+
+        for (String word : words) {
+            if (word.matches("\\b\\w*z\\w*\\b")) {
+                System.out.println(word);
+            }
+        }
+    }
 
     private static void Task15() {}
 
