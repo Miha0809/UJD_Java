@@ -291,7 +291,17 @@ public class Main {
         System.out.println("Czy liczba jest poprawna? " + isValid);
     }
 
-    private static void Task18() {}
+    private static void Task18() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj numer domu w formacie numer\\numer: ");
+        String input = scanner.nextLine().trim();
+        scanner.close();
+
+        String regex = "\\d+[A-Za-z]*\\\\\\d+[A-Za-z]*";
+
+        boolean isValid = input.matches(regex);
+        System.out.println("Czy numer domu jest poprawny? " + isValid);
+    }
 
     private static void Task19() {}
 
