@@ -71,9 +71,34 @@ public class Main {
         System.out.println(testString6 + " -> " + result6);
     }
 
-    private static void Task6() {}
+    private static void Task6() {
+        String testString1 = "abbb";
+        String testString2 = "abb";
+        String testString3 = "a";
+        String testString4 = "abbbb";
+        String testString5 = "ba";
+        String testString6 = "aabbb";
 
-    private static void Task7() {}
+        String regex = "^ab{3}$";
+
+        boolean result1 = testString1.matches(regex);
+        boolean result2 = testString2.matches(regex);
+        boolean result3 = testString3.matches(regex);
+        boolean result4 = testString4.matches(regex);
+        boolean result5 = testString5.matches(regex);
+        boolean result6 = testString6.matches(regex);
+
+        System.out.println(testString1 + " -> " + result1);
+        System.out.println(testString2 + " -> " + result2);
+        System.out.println(testString3 + " -> " + result3);
+        System.out.println(testString4 + " -> " + result4);
+        System.out.println(testString5 + " -> " + result5);
+        System.out.println(testString6 + " -> " + result6);
+    }
+
+    private static void Task7() {
+
+    }
 
     private static void Task8() {}
 
