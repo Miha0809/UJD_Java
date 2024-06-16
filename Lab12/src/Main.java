@@ -1,3 +1,4 @@
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -18,7 +19,40 @@ public class Main {
 
     private static void Task3() {}
 
-    private static void Task4() {}
+    private static void Task4(String[] args) {
+        if (args.length < 2) {
+            System.out.println("Użycie: java Cal <miesiąc> <rok>");
+            return;
+        }
+
+        int month = Integer.parseInt(args[0]);
+        int year = Integer.parseInt(args[1]);
+
+        LocalDate date = LocalDate.of(year, month, 1);
+        int daysInMonth = date.lengthOfMonth();
+        DayOfWeek firstDayOfMonth = date.getDayOfWeek();
+
+        System.out.println("Pon Wt Śr Czw Pt Sob Nie");
+
+        int offset = firstDayOfMonth.getValue() % 7;
+
+        int weeks = (offset + daysInMonth) / 7 + ((offset + daysInMonth) % 7 == 0 ? 0 : 1);
+
+        int day = 1;
+        for (int i = 0; i < weeks; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (i == 0 && j < offset) {
+                    System.out.print("   ");
+                } else {
+                    if (day <= daysInMonth) {
+                        System.out.printf("%2d ", day);
+                        day++;
+                    }
+                }
+            }
+            System.out.println();
+        }
+    }
 
     private static void Task5() {}
 
@@ -53,7 +87,7 @@ public class Main {
                     break;
                 }
                 case 4: {
-                    Task4();
+                    Task4(args);
                     break;
                 }
                 case 5: {
