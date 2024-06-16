@@ -2,6 +2,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.time.temporal.ChronoUnit;
+import java.time.Month;
 
 public class Main {
     private static void Task1() {
@@ -68,7 +69,18 @@ public class Main {
         System.out.println("Żyjesz już " + daysAlive + " dni.");
     }
 
-    private static void Task6() {}
+    private static void Task6() {
+        LocalDate startDate = LocalDate.of(1900, Month.JANUARY, 13);
+        LocalDate endDate = LocalDate.of(1999, Month.DECEMBER, 13);
+
+        LocalDate date = startDate;
+        while (!date.isAfter(endDate)) {
+            if (date.getDayOfWeek() == DayOfWeek.FRIDAY) {
+                System.out.println(date);
+            }
+            date = date.plusMonths(1);
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
