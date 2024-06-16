@@ -97,7 +97,28 @@ public class Main {
     }
 
     private static void Task7() {
+        String testString1 = "abb";
+        String testString2 = "abbb";
+        String testString3 = "ab";
+        String testString4 = "abbbb";
+        String testString5 = "ba";
+        String testString6 = "aabb";
 
+        String regex = "^ab{2,3}$";
+
+        boolean result1 = testString1.matches(regex);
+        boolean result2 = testString2.matches(regex);
+        boolean result3 = testString3.matches(regex);
+        boolean result4 = testString4.matches(regex);
+        boolean result5 = testString5.matches(regex);
+        boolean result6 = testString6.matches(regex);
+
+        System.out.println(testString1 + " -> " + result1);
+        System.out.println(testString2 + " -> " + result2);
+        System.out.println(testString3 + " -> " + result3);
+        System.out.println(testString4 + " -> " + result4);
+        System.out.println(testString5 + " -> " + result5);
+        System.out.println(testString6 + " -> " + result6);
     }
 
     private static void Task8() {}
