@@ -1,6 +1,7 @@
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Scanner;
+import java.time.temporal.ChronoUnit;
 
 public class Main {
     private static void Task1() {
@@ -54,7 +55,18 @@ public class Main {
         }
     }
 
-    private static void Task5() {}
+    private static void Task5() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj datę urodzenia (RRRR-MM-DD): ");
+        String birthDateString = scanner.nextLine();
+
+        LocalDate birthDate = LocalDate.parse(birthDateString);
+
+        long daysAlive = ChronoUnit.DAYS.between(birthDate, LocalDate.now());
+
+        System.out.println("Żyjesz już " + daysAlive + " dni.");
+    }
 
     private static void Task6() {}
 
