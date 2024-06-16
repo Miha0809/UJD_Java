@@ -1,6 +1,4 @@
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -34,7 +32,18 @@ public class Main {
                 .forEach(System.out::println);
     }
 
-    private static void Task4() {}
+    private static void Task4() {
+        ZoneId losAngelesZone = ZoneId.of("America/Los_Angeles");
+        ZoneId frankfurtZone = ZoneId.of("Europe/Berlin");
+        LocalDateTime departureDateTime = LocalDateTime.of(2024, 6, 16, 15, 5);
+        Duration flightDuration = Duration.ofHours(10).plusMinutes(50);
+        ZonedDateTime departureZonedDateTime = departureDateTime.atZone(losAngelesZone);
+        ZonedDateTime arrivalZonedDateTime = departureZonedDateTime.plus(flightDuration);
+        ZonedDateTime arrivalInFrankfurt = arrivalZonedDateTime.withZoneSameInstant(frankfurtZone);
+
+        System.out.println("Data i czas odlotu z Los Angeles: " + departureZonedDateTime);
+        System.out.println("Data i czas przylotu do Frankfurtu: " + arrivalInFrankfurt);
+    }
 
     private static void Task5() {}
 
