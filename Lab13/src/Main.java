@@ -1,4 +1,7 @@
 import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -64,7 +67,24 @@ public class Main {
         System.out.println("Czas trwania lotu: " + hours + " godzin " + minutes + " minut");
     }
 
-    private static void Task6() {}
+    private static void Task6() {
+        List<ZonedDateTime> meetings = new ArrayList<>();
+        meetings.add(ZonedDateTime.of(LocalDateTime.of(2024, 6, 16, 9, 0), ZoneId.of("America/Los_Angeles")));
+        meetings.add(ZonedDateTime.of(LocalDateTime.of(2024, 6, 16, 11, 30), ZoneId.of("Europe/Berlin")));
+        meetings.add(ZonedDateTime.of(LocalDateTime.of(2024, 6, 16, 14, 45), ZoneId.of("Asia/Tokyo")));
+        meetings.add(ZonedDateTime.of(LocalDateTime.of(2024, 6, 16, 18, 15), ZoneId.of("Australia/Sydney")));
+        ZonedDateTime currentDateTime = ZonedDateTime.now();
+        ZonedDateTime oneHourLater = currentDateTime.plusHours(1);
+
+        System.out.println("Spotkania rozpoczynające się w ciągu najbliższej godziny:");
+
+        for (ZonedDateTime meeting : meetings) {
+            if (meeting.isAfter(currentDateTime) && meeting.isBefore(oneHourLater)) {
+                String formattedMeeting = meeting.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm z"));
+                System.out.println(" - " + formattedMeeting);
+            }
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
