@@ -230,7 +230,16 @@ public class Main {
         System.out.println(input5 + " -> " + result5); // true
     }
 
-    private static void Task13() {}
+    private static void Task13() {
+        String input = "This is a test string with some words containing zebra and pizza.";
+        String[] words = input.split("\\s+");
+
+        for (String word : words) {
+            if (word.contains("z")) {
+                System.out.println(word);
+            }
+        }
+    }
 
     private static void Task14() {}
 
