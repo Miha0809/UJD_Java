@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -366,7 +370,40 @@ public class Main {
         System.out.println(result.toString().trim());
     }
 
-    private static void Task24() {}
+    private static void Task24(String[] args) {
+        if (args.length != 1) {
+            System.err.println("Użycie: java HrefMatch <adres_strony>");
+            return;
+        }
+
+        String urlString = args[0];
+        StringBuilder content = new StringBuilder();
+
+        try {
+            URL url = new URL(urlString);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line);
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            System.err.println("Nie udało się wczytać zawartości strony: " + e.getMessage());
+            return;
+        }
+
+        String regex = "\"([^\"]+\\.jpg)\"";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(content.toString());
+
+        System.out.println("Pliki z rozszerzeniem .jpg na stronie " + urlString + ":");
+
+        while (matcher.find()) {
+            System.out.println(matcher.group(1));
+        }
+    }
 
     private static void Task25() {}
 
@@ -507,7 +544,7 @@ public class Main {
                     break;
                 }
                 case 24: {
-                    Task24();
+                    Task24(args);
                     break;
                 }
                 case 25: {
