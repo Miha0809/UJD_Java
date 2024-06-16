@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -405,7 +406,32 @@ public class Main {
         }
     }
 
-    private static void Task25() {}
+    private static void Task25() {
+        String input = "Sample text with numbers: +123, -456, 789 and some more: -321. There are no decimals like 1.23 or signs like + or - without numbers.";
+
+        // Metoda (a): za pomocą metody find
+        ArrayList<Integer> numbersFind = new ArrayList<>();
+        Pattern patternFind = Pattern.compile("-?\\b\\d+\\b");
+        Matcher matcherFind = patternFind.matcher(input);
+
+        while (matcherFind.find()) {
+            numbersFind.add(Integer.parseInt(matcherFind.group()));
+        }
+
+        System.out.println("Liczby całkowite (metoda find): " + numbersFind);
+
+        // Metoda (b): za pomocą metody split
+        ArrayList<Integer> numbersSplit = new ArrayList<>();
+        String[] tokens = input.split("[^\\d-]+");
+
+        for (String token : tokens) {
+            if (!token.isEmpty()) {
+                numbersSplit.add(Integer.parseInt(token));
+            }
+        }
+
+        System.out.println("Liczby całkowite (metoda split): " + numbersSplit);
+    }
 
     private static void Task26() {}
 
