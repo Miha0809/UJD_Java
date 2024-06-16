@@ -81,7 +81,21 @@ public class Main {
         }
     }
 
-    private static void Task5() {}
+    private static void Task5() {
+        Currency[] currencies = Currency.getAvailableCurrencies().toArray(new Currency[0]);
+        Set<String> uniqueCurrencyNames = new HashSet<>();
+
+        for (Currency currency : currencies) {
+            for (Locale locale : Locale.getAvailableLocales()) {
+                String currencyName = currency.getDisplayName(locale);
+                uniqueCurrencyNames.add(currencyName);
+            }
+        }
+
+        for (String currencyName : uniqueCurrencyNames) {
+            System.out.println(currencyName);
+        }
+    }
 
     private static void Task6() {}
 
