@@ -457,9 +457,34 @@ public class Main {
         }
     }
 
-    private static void Task27() {}
+    private static void Task27() {
+//        (\d3): Pierwsza grupa, która zawiera trzy cyfry.
+//        (\d3): Druga grupa, również zawiera trzy cyfry.
+//        (\d4): Trzecia grupa, zawiera cztery cyfry.
+//        ((\d3)(\d3)(\d4)): Czwarta grupa, która jest złożeniem trzech poprzednich grup: trzy cyfry, kolejne trzy cyfry i cztery cyfry.
+//        ((\d3)(\d4)): Piąta grupa, złożona z dwóch grup: trzy cyfry i cztery cyfry.
+//        \b: Grupa zerowa, która reprezentuje granicę słowa.
+    }
 
-    private static void Task28() {}
+    private static void Task28() {
+        String text = "Today is 15/06/2024 and tomorrow will be 16/06/2024.";
+
+        String regex = "(\\d{2})/(\\d{2})/(\\d{4})";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+
+        String result = matcher.replaceAll(match -> {
+            String day = match.group(1);
+            String month = match.group(2);
+            String year = match.group(3);
+
+            return year + "-" + month + "-" + day;
+        });
+
+        System.out.println("Tekst po zamianie dat: ");
+        System.out.println(result);
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
