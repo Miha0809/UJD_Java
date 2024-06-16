@@ -263,7 +263,21 @@ public class Main {
         }
     }
 
-    private static void Task16() {}
+    private static void Task16() {
+        String input1 = "123abc";
+        String input2 = "abc123";
+        String input3 = "45def";
+        String input4 = "def45";
+        String input5 = "0zero";
+
+        String regex = "^[0-9].*";
+
+        System.out.println(input1.matches(regex)); // true
+        System.out.println(input2.matches(regex)); // false
+        System.out.println(input3.matches(regex)); // true
+        System.out.println(input4.matches(regex)); // false
+        System.out.println(input5.matches(regex)); // true
+    }
 
     private static void Task17() {}
 
