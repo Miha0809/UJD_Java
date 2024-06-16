@@ -433,7 +433,29 @@ public class Main {
         System.out.println("Liczby całkowite (metoda split): " + numbersSplit);
     }
 
-    private static void Task26() {}
+    private static void Task26() {
+        String path = "/home/student/mójplik.txt";
+        String regex = "^(.*/)?(?:$|(.+?)(?:(\\.[^.]*$)|$))";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(path);
+
+        if (matcher.find()) {
+            String directory = matcher.group(1);
+            String filename = matcher.group(2);
+            String extension = matcher.group(3);
+
+            if (directory != null && !directory.isEmpty()) {
+                directory = directory.substring(0, directory.length() - 1);
+            }
+
+            System.out.println("Nazwy katalogów: " + directory);
+            System.out.println("Nazwa pliku: " + filename);
+            System.out.println("Rozszerzenie pliku: " + extension);
+        } else {
+            System.out.println("Nie udało się dopasować ścieżki.");
+        }
+    }
 
     private static void Task27() {}
 
