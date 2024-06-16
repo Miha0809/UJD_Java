@@ -1,8 +1,9 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
@@ -46,7 +47,25 @@ public class Main {
         }
     }
 
-    private static void Task3() {}
+    private static void Task3() {
+        List<Locale> locales = Arrays.asList(Locale.getAvailableLocales());
+
+        DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
+
+        for (Locale locale : locales) {
+            try {
+                DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+                if (df instanceof SimpleDateFormat) {
+                    SimpleDateFormat sdf = (SimpleDateFormat) df;
+                    if (sdf.toPattern().equals("M/d/yyyy")) {
+                        System.out.println(locale + " uses the same date format as the United States");
+                    }
+                }
+            } catch (Exception e) {
+                // Ignore locales that cause exceptions (not supported or invalid)
+            }
+        }
+    }
 
     private static void Task4() {}
 
@@ -68,6 +87,7 @@ public class Main {
             System.out.println("Task 4 - enter 4");
             System.out.println("Task 5 - enter 5");
             System.out.println("Task 6 - enter 6");
+            System.out.println("Task 7 - enter 7");
             System.out.println("EXIT - enter 0");
             task = scanner.nextInt();
 
