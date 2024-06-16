@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-=======
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Scanner;
->>>>>>> 51b80ca (Task1)
 
 public class Main {
     private static void Task1() {
@@ -19,7 +14,6 @@ public class Main {
         System.out.println(timeInterval.overlapsWith(timeInterval));
     }
 
-<<<<<<< HEAD
     private static void Task2() {
         Set<String> zoneIds = ZoneId.getAvailableZoneIds();
 
@@ -92,17 +86,6 @@ public class Main {
             }
         }
     }
-=======
-    private static void Task2() {}
-
-    private static void Task3() {}
-
-    private static void Task4() {}
-
-    private static void Task5() {}
-
-    private static void Task6() {}
->>>>>>> 51b80ca (Task1)
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
