@@ -1,4 +1,5 @@
 import java.text.DateFormat;
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -119,7 +120,41 @@ public class Main {
         }
     }
 
-    private static void Task7() {}
+    private static boolean areMonthNamesDigits(String[] months) {
+        for (String month : months) {
+            if (!month.matches("\\d+")) {
+                return false;
+            }
+        }
+        return true;
+    }
+    private static void Task7() {
+        Locale[] locales = Locale.getAvailableLocales();
+        List<String> differentMonthNames = new ArrayList<>();
+        DateFormatSymbols standardSymbols = new DateFormatSymbols(Locale.ENGLISH);
+        String[] standardMonths = standardSymbols.getMonths();
+
+        for (Locale locale : locales) {
+            DateFormatSymbols symbols = new DateFormatSymbols(locale);
+            String[] months = symbols.getMonths();
+
+            boolean different = false;
+            for (int i = 0; i < months.length; i++) {
+                if (!months[i].equals(standardMonths[i])) {
+                    different = true;
+                    break;
+                }
+            }
+
+            if (different && !areMonthNamesDigits(months)) {
+                differentMonthNames.add(locale.getDisplayName() + " (" + locale + ")");
+            }
+        }
+
+        for (String name : differentMonthNames) {
+            System.out.println(name);
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
