@@ -25,7 +25,14 @@ public class Main {
                 });
     }
 
-    private static void Task3() {}
+    private static void Task3() {
+        Set<String> zoneIds = ZoneId.getAvailableZoneIds();
+
+        zoneIds.stream()
+                .map(ZoneId::of)
+                .filter(zone -> zone.getRules().getOffset(zone.getRules().getTransition(LocalDate.now().atStartOfDay(zone).toLocalDateTime()).getInstant()).getTotalSeconds() % 3600 != 0)
+                .forEach(System.out::println);
+    }
 
     private static void Task4() {}
 
