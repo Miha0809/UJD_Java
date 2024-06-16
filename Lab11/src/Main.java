@@ -283,7 +283,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Podaj liczbę zmiennoprzecinkową: ");
         String input = scanner.nextLine().trim();
-        scanner.close();
 
         String regex = "[-+]?\\d*\\.?\\d+";
 
@@ -295,7 +294,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Podaj numer domu w formacie numer\\numer: ");
         String input = scanner.nextLine().trim();
-        scanner.close();
 
         String regex = "\\d+[A-Za-z]*\\\\\\d+[A-Za-z]*";
 
@@ -307,7 +305,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Podaj nazwę miasta: ");
         String input = scanner.nextLine().trim();
-        scanner.close();
 
         String regex = "^[A-Za-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]+(\\s+[A-Za-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]+)*$";
 
@@ -319,7 +316,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Wprowadź łańcuch znaków: ");
         String input = scanner.nextLine();
-        scanner.close();
 
         Pattern pattern = Pattern.compile("\\br[a-zA-Z]{2}\\b");
         Matcher matcher = pattern.matcher(input);
@@ -333,7 +329,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Podaj liczbę zmiennoprzecinkową: ");
         String input = scanner.nextLine().trim();
-        scanner.close();
 
         String regex = "[-+]?(\\d+(\\.\\d*)?|\\.\\d+)";
 
@@ -345,7 +340,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Podaj numer domu w formacie numer\\numer: ");
         String input = scanner.nextLine().trim();
-        scanner.close();
 
         String regex = "\\b\\d+[A-Za-z]*\\\\\\d+[A-Za-z]*\\b";
 
@@ -353,7 +347,24 @@ public class Main {
         System.out.println("Czy numer domu jest poprawny? " + isValid);
     }
 
-    private static void Task23() {}
+    private static void Task23() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Wprowadź łańcuch znaków: ");
+        String input = scanner.nextLine();
+
+        String[] words = input.split("\\s+");
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            if (word.length() == 3 && word.startsWith("c")) {
+                result.append(word.toUpperCase()).append(" ");
+            } else {
+                result.append(word).append(" ");
+            }
+        }
+
+        System.out.println(result.toString().trim());
+    }
 
     private static void Task24() {}
 
@@ -516,6 +527,7 @@ public class Main {
                     break;
                 }
                 default:
+                    scanner.close();
                     break;
             }
         }
