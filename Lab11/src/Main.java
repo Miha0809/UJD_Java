@@ -136,7 +136,28 @@ public class Main {
     }
 
     private static void Task9() {
+        String testString1 = "ab";
+        String testString2 = "a_test_b";
+        String testString3 = "abc";
+        String testString4 = "a123b";
+        String testString5 = "ba";
+        String testString6 = "a__b";
 
+        String regex = "^a.*b$";
+
+        boolean result1 = testString1.matches(regex);
+        boolean result2 = testString2.matches(regex);
+        boolean result3 = testString3.matches(regex);
+        boolean result4 = testString4.matches(regex);
+        boolean result5 = testString5.matches(regex);
+        boolean result6 = testString6.matches(regex);
+
+        System.out.println(testString1 + " -> " + result1);
+        System.out.println(testString2 + " -> " + result2);
+        System.out.println(testString3 + " -> " + result3);
+        System.out.println(testString4 + " -> " + result4);
+        System.out.println(testString5 + " -> " + result5);
+        System.out.println(testString6 + " -> " + result6);
     }
 
     private static void Task10() {}
@@ -245,6 +266,86 @@ public class Main {
                 }
                 case 8: {
                     Task8();
+                    break;
+                }
+                case 9: {
+                    Task9();
+                    break;
+                }
+                case 10: {
+                    Task10();
+                    break;
+                }
+                case 11: {
+                    Task11();
+                    break;
+                }
+                case 12: {
+                    Task12();
+                    break;
+                }
+                case 13: {
+                    Task13();
+                    break;
+                }
+                case 14: {
+                    Task14();
+                    break;
+                }
+                case 15: {
+                    Task15();
+                    break;
+                }
+                case 16: {
+                    Task16();
+                    break;
+                }
+                case 17: {
+                    Task17();
+                    break;
+                }
+                case 18: {
+                    Task18();
+                    break;
+                }
+                case 19: {
+                    Task19();
+                    break;
+                }
+                case 20: {
+                    Task20();
+                    break;
+                }
+                case 21: {
+                    Task21();
+                    break;
+                }
+                case 22: {
+                    Task22();
+                    break;
+                }
+                case 23: {
+                    Task23();
+                    break;
+                }
+                case 24: {
+                    Task24();
+                    break;
+                }
+                case 25: {
+                    Task25();
+                    break;
+                }
+                case 26: {
+                    Task26();
+                    break;
+                }
+                case 27: {
+                    Task27();
+                    break;
+                }
+                case 28: {
+                    Task28();
                     break;
                 }
                 default:
