@@ -97,7 +97,27 @@ public class Main {
         }
     }
 
-    private static void Task6() {}
+    private static void Task6() {
+        Currency[] currencies = Currency.getAvailableCurrencies().toArray(new Currency[0]);
+        Set<Currency> currenciesWithDifferentSymbols = new HashSet<>();
+
+        for (Currency currency : currencies) {
+            Set<String> uniqueSymbols = new HashSet<>();
+
+            for (Locale locale : Locale.getAvailableLocales()) {
+                String symbol = currency.getSymbol(locale);
+                uniqueSymbols.add(symbol);
+            }
+
+            if (uniqueSymbols.size() > 1) {
+                currenciesWithDifferentSymbols.add(currency);
+            }
+        }
+
+        for (Currency currency : currenciesWithDifferentSymbols) {
+            System.out.println(currency.getCurrencyCode() + ": " + currency.getDisplayName() + " - " + currency.getSymbol());
+        }
+    }
 
     private static void Task7() {}
 
