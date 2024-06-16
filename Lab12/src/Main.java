@@ -10,7 +10,11 @@ public class Main {
         System.out.println("Dzień Programisty w roku " + year + " to: " + programmersDay);
     }
 
-    private static void Task2() {}
+    private static void Task2() {
+        LocalDate date = LocalDate.of(2000, 2, 29);
+        LocalDate nextYear = date.plusYears(1);
+        System.out.println("Data po dodaniu jednego roku: " + nextYear);
+    }
 
     private static void Task3() {}
 
