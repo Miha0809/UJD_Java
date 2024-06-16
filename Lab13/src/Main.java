@@ -1,6 +1,8 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
     private static void Task1() {
@@ -10,7 +12,18 @@ public class Main {
         System.out.println(timeInterval.overlapsWith(timeInterval));
     }
 
-    private static void Task2() {}
+    private static void Task2() {
+        Set<String> zoneIds = ZoneId.getAvailableZoneIds();
+
+        LocalDate today = LocalDate.now();
+
+        zoneIds.stream()
+                .map(ZoneId::of)
+                .forEach(zone -> {
+                    int offset = today.atStartOfDay(zone).getOffset().getTotalSeconds() / 3600;
+                    System.out.println("Strefa czasowa: " + zone + ", Przesunięcie: " + offset + " godzin");
+                });
+    }
 
     private static void Task3() {}
 
