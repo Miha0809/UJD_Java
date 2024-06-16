@@ -303,7 +303,17 @@ public class Main {
         System.out.println("Czy numer domu jest poprawny? " + isValid);
     }
 
-    private static void Task19() {}
+    private static void Task19() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj nazwę miasta: ");
+        String input = scanner.nextLine().trim();
+        scanner.close();
+
+        String regex = "^[A-Za-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]+(\\s+[A-Za-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]+)*$";
+
+        boolean isValid = input.matches(regex);
+        System.out.println("Czy nazwa miasta jest poprawna? " + isValid);
+    }
 
     private static void Task20() {}
 
