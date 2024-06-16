@@ -329,7 +329,17 @@ public class Main {
         }
     }
 
-    private static void Task21() {}
+    private static void Task21() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj liczbę zmiennoprzecinkową: ");
+        String input = scanner.nextLine().trim();
+        scanner.close();
+
+        String regex = "[-+]?(\\d+(\\.\\d*)?|\\.\\d+)";
+
+        boolean isValid = input.matches(regex);
+        System.out.println("Czy liczba jest poprawna? " + isValid);
+    }
 
     private static void Task22() {}
 
