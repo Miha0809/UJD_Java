@@ -160,7 +160,29 @@ public class Main {
         System.out.println(testString6 + " -> " + result6);
     }
 
-    private static void Task10() {}
+    private static void Task10() {
+        String input1 = "exampleTest string";
+        String input2 = "example string";
+        String input3 = "example123 string";
+        String input4 = "123example string";
+        String input5 = "example_test string";
+
+        String wordToMatch = "example";
+
+        String regex = "^" + wordToMatch + "\\b";
+
+        boolean result1 = input1.matches(regex);
+        boolean result2 = input2.matches(regex);
+        boolean result3 = input3.matches(regex);
+        boolean result4 = input4.matches(regex);
+        boolean result5 = input5.matches(regex);
+
+        System.out.println(input1 + " -> " + result1);
+        System.out.println(input2 + " -> " + result2);
+        System.out.println(input3 + " -> " + result3);
+        System.out.println(input4 + " -> " + result4);
+        System.out.println(input5 + " -> " + result5);
+    }
 
     private static void Task11() {}
 
