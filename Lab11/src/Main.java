@@ -207,7 +207,28 @@ public class Main {
         System.out.println(input5 + " -> " + result5); // true
     }
 
-    private static void Task12() {}
+    private static void Task12() {
+        String input1 = "This is a test.";
+        String input2 = "Another example,";
+        String input3 = "Yet another example";
+        String input4 = "Test!";
+        String input5 = "Final example.";
+
+        String wordToMatch = "example";
+        String regex = wordToMatch + "[,.!?]?\\b";
+
+        boolean result1 = input1.matches(regex);
+        boolean result2 = input2.matches(regex);
+        boolean result3 = input3.matches(regex);
+        boolean result4 = input4.matches(regex);
+        boolean result5 = input5.matches(regex);
+
+        System.out.println(input1 + " -> " + result1); // false
+        System.out.println(input2 + " -> " + result2); // false
+        System.out.println(input3 + " -> " + result3); // true
+        System.out.println(input4 + " -> " + result4); // true
+        System.out.println(input5 + " -> " + result5); // true
+    }
 
     private static void Task13() {}
 
